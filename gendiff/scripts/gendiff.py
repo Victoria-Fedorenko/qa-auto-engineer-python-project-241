@@ -10,7 +10,9 @@ def main():
 
     parser.add_argument('second_file')
 
-    parser.parse_args(['first_file', 'second_file'])
+    parser.add_argument('-f', '--format')
+
+    parser.parse_args()
 
 if __name__ == '__main__':
     main()
