@@ -1,6 +1,6 @@
 import argparse
 import json
-from path import Path
+from pathlib import Path
 
 FILE1 = Path('..', '..', 'file1.json')
 FILE2 = Path('..', '..', 'file2.json')
