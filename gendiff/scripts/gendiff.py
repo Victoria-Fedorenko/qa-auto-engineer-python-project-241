@@ -2,15 +2,25 @@ import argparse
 import json
 from pathlib import Path
 
-FILE1 = Path('..', '..', 'file1.json')
-FILE2 = Path('..', '..', 'file2.json')
+def read_files(file1, file2):
+    def read_file(file_path_str):
+            file_path = Path(file_path_str)
+            with open(file_path, 'r') as my_file:
+                try:
+                    my_data = json.load(my_file)
+                    return my_data
+                except json.JSONDecodeError as e:
+                    print(f"Ошибка в JSON: {e}")
+                    print("Содержимое файла:")
+                    print(my_file.read())    
 
-def read_files(file1=FILE1, file2=FILE1):
+    data_1 = read_file(file1)
+    data_2 = read_file(file2)
 
-    config_file_1 = json.load(file1)
-    config_file_2 = json.load(file2)
+    return data_1, data_2
 
-    return config_flie_1, config_file_2
+    
+    
 
 
 
@@ -26,9 +36,13 @@ def main():
 
     parser.add_argument('-f', '--format')
 
-    parser.parse_args()
+    args = parser.parse_args()
 
-    config_file_1, config_file_2 = read_files()
+    data_1, data_2 = read_files(args.first_file, args.second_file)
+
+    #return data_1, data_2
+
+    
 
 if __name__ == '__main__':
     main()
