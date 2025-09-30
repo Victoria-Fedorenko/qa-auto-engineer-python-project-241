@@ -2,6 +2,7 @@ import argparse
 import json
 from pathlib import Path
 
+
 def read_files(file1, file2):
 
     def read_file(file_path_str):
@@ -41,6 +42,7 @@ def find_the_same_data(data_1, data_2):
     
     return result
 
+
 def one_file_only(data_1, data_2):
 
     keys_1 = data_1.keys()
@@ -67,6 +69,7 @@ def one_file_only(data_1, data_2):
             result.append(str_to_append.lower())
     
     return result
+
 
 def find_different_pairs(data_1, data_2):
 
@@ -96,6 +99,7 @@ def find_different_pairs(data_1, data_2):
 def format_result(equal_pairs, no_match_pairs, pairs_with_different_vals):
 
     big_list = equal_pairs + no_match_pairs + pairs_with_different_vals
+
     def sort_key(x):
         # Remove diff marker and spaces, get key name
         key_name = x.lstrip(' +-').split(':', 1)[0]
@@ -107,19 +111,17 @@ def format_result(equal_pairs, no_match_pairs, pairs_with_different_vals):
     result = f'{{\n{joined}\n}}'
     return result
 
+
 def generate_diff(file1, file2):
 
     data_1, data_2 = read_files(file1, file2)
     equal_pairs = find_the_same_data(data_1, data_2)
     no_match_pairs = one_file_only(data_1, data_2)
     pairs_with_different_vals = find_different_pairs(data_1, data_2)
-    result =  format_result(equal_pairs, no_match_pairs, pairs_with_different_vals)
+    result = format_result(equal_pairs, no_match_pairs, pairs_with_different_vals)
 
     return result
     
-    
-
-
 
 def main():
 
@@ -139,7 +141,6 @@ def main():
 
     return result
 
-    
 
 if __name__ == '__main__':
     main()
