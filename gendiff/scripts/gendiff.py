@@ -36,7 +36,7 @@ def find_the_same_data(data_1, data_2):
 
                 val = data_1[k]
 
-                str_to_append = f'   {k}: {val}'
+                str_to_append = f'    {k}: {val}'
                 result.append(str_to_append)
     
     return result
@@ -54,7 +54,7 @@ def one_file_only(data_1, data_2):
 
             val = data_1[k]
 
-            str_to_append = f'-  {k}: {val}'
+            str_to_append = f'  - {k}: {val}'
             result.append(str_to_append.lower())
 
     for k in keys_2:
@@ -63,7 +63,7 @@ def one_file_only(data_1, data_2):
 
             val = data_2[k]
 
-            str_to_append = f'+  {k}: {val}'
+            str_to_append = f'  + {k}: {val}'
             result.append(str_to_append.lower())
     
     return result
@@ -84,8 +84,8 @@ def find_different_pairs(data_1, data_2):
                 val1 = data_1[k]
                 val2 = data_2[k]
 
-                str_to_append_1 = f'-  {k}: {val1}'
-                str_to_append_2 = f'+  {k}: {val2}'
+                str_to_append_1 = f'  - {k}: {val1}'
+                str_to_append_2 = f'  + {k}: {val2}'
 
                 result.append(str_to_append_1)
                 result.append(str_to_append_2)
@@ -103,7 +103,7 @@ def format_result(equal_pairs, no_match_pairs, pairs_with_different_vals):
         marker = 0 if x.strip().startswith('-') else 1 if x.strip().startswith('+') else 2
         return (key_name, marker)
     sorted_list = sorted(big_list, key=sort_key)
-    joined = ',\n'.join(sorted_list)
+    joined = '\n'.join(sorted_list)
     result = f'{{\n{joined}\n}}'
     return result
 
