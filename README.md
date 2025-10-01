@@ -2,3 +2,4 @@ This CLI tool can help you to compare two configuration files using gendiff func
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Victoria-Fedorenko/qa-auto-engineer-python-project-241/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Victoria-Fedorenko/qa-auto-engineer-python-project-241/actions)
+[![Lint and Test](https://github.com/Victoria-Fedorenko/qa-auto-engineer-python-project-241/actions/workflows/tests_and_lint.yml/badge.svg)](https://github.com/Victoria-Fedorenko/qa-auto-engineer-python-project-241/actions/workflows/tests_and_lint.yml)
