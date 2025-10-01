@@ -6,15 +6,15 @@ from pathlib import Path
 def read_files(file1, file2):
 
     def read_file(file_path_str):
-            file_path = Path(file_path_str)
-            with open(file_path, 'r') as my_file:
-                try:
-                    my_data = json.load(my_file)
-                    return my_data
-                except json.JSONDecodeError as e:
-                    print(f"Ошибка в JSON: {e}")
-                    print("Содержимое файла:")
-                    print(my_file.read())    
+        file_path = Path(file_path_str)
+        with open(file_path, 'r') as my_file:
+            try:
+                my_data = json.load(my_file)
+                return my_data
+            except json.JSONDecodeError as e:
+                print(f"Ошибка в JSON: {e}")
+                print("Содержимое файла:")
+                print(my_file.read())    
 
     data_1 = read_file(file1)
     data_2 = read_file(file2)
@@ -101,10 +101,14 @@ def format_result(equal_pairs, no_match_pairs, pairs_with_different_vals):
     big_list = equal_pairs + no_match_pairs + pairs_with_different_vals
 
     def sort_key(x):
-        # Remove diff marker and spaces, get key name
         key_name = x.lstrip(' +-').split(':', 1)[0]
-        # '-' first, '+' second, others last
-        marker = 0 if x.strip().startswith('-') else 1 if x.strip().startswith('+') else 2
+        stripped = x.strip()
+        if stripped.startswith('-'):
+            marker = 0
+        elif stripped.startswith('+'):
+            marker = 1
+        else:
+            marker = 2
         return (key_name, marker)
     sorted_list = sorted(big_list, key=sort_key)
     joined = '\n'.join(sorted_list)
@@ -118,7 +122,9 @@ def generate_diff(file1, file2):
     equal_pairs = find_the_same_data(data_1, data_2)
     no_match_pairs = one_file_only(data_1, data_2)
     pairs_with_different_vals = find_different_pairs(data_1, data_2)
-    result = format_result(equal_pairs, no_match_pairs, pairs_with_different_vals)
+    result = format_result(equal_pairs, 
+                           no_match_pairs, 
+                           pairs_with_different_vals)
 
     return result
     

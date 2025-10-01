@@ -10,4 +10,4 @@ jobs:
       - name: Run linter
         run: make lint
       - name: Run tests
-        run: make tests
+        run: uv run pytest
