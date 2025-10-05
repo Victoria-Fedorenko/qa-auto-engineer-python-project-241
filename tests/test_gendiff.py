@@ -10,5 +10,5 @@ good_result_1 = """{
 }"""
 
 def test_generate_diff(): 
-    assert generate_diff('file1.json', 'file2.json') == good_result_1
-    assert generate_diff('filepath1.yml', 'filepath2.yml') == good_result_1
+    assert generate_diff('test_data/file1.json', 'test_data/file2.json') == good_result_1
+    assert generate_diff('test_data/filepath1.yml', 'test_data/filepath2.yml') == good_result_1
