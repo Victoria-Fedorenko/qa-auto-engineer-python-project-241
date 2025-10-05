@@ -108,6 +108,7 @@ def find_different_pairs(data_1, data_2):
 
     return result
 
+
 def get_big_list(equal_pairs, no_match_pairs, pairs_with_different_vals):
 
     big_list = equal_pairs + no_match_pairs + pairs_with_different_vals
@@ -139,7 +140,9 @@ def generate_diff(file1, file2, formatter=stylish):
     equal_pairs = find_the_same_data(data_1, data_2)
     no_match_pairs = one_file_only(data_1, data_2)
     pairs_with_different_vals = find_different_pairs(data_1, data_2)
-    big_list = get_big_list(equal_pairs, no_match_pairs, pairs_with_different_vals)
+    big_list = get_big_list(equal_pairs, 
+                            no_match_pairs, 
+                            pairs_with_different_vals)
     result = formatter(big_list)
 
     return result
