@@ -1,7 +1,8 @@
 import argparse
 import json
-import yaml
 from pathlib import Path
+
+import yaml
 
 
 def read_files(file1, file2):
