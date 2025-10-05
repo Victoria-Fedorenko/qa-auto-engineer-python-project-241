@@ -1,5 +1,7 @@
 import argparse
-from gendiff.scripts.parse_data import read_files, get_big_list
+
+from gendiff.scripts.parse_data import get_big_list, read_files
+
 
 def stylish(big_list):
 
