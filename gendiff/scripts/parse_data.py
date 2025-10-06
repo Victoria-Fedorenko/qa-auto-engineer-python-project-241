@@ -39,7 +39,7 @@ def find_the_same_data(data_1, data_2):
     keys_1 = data_1.keys()
     keys_2 = data_2.keys()
 
-    result = []
+    result = {}
 
     for k in keys_1:
 
@@ -49,18 +49,17 @@ def find_the_same_data(data_1, data_2):
 
                 val = data_1[k]
 
-                str_to_append = f'    {k}: {val}'
-                result.append(str_to_append)
-    
+                result[k] = val
+
     return result
 
 
-def one_file_only(data_1, data_2):
+def find_removed_data(data_1, data_2):
 
     keys_1 = data_1.keys()
     keys_2 = data_2.keys()
 
-    result = []
+    result = {}
 
     for k in keys_1:
 
@@ -68,8 +67,17 @@ def one_file_only(data_1, data_2):
 
             val = data_1[k]
 
-            str_to_append = f'  - {k}: {val}'
-            result.append(str_to_append.lower())
+            result[k] = val
+    
+    return result
+
+
+def find_added_data(data_1, data_2):
+
+    keys_1 = data_1.keys()
+    keys_2 = data_2.keys()
+
+    result = {}
 
     for k in keys_2:
 
@@ -77,18 +85,18 @@ def one_file_only(data_1, data_2):
 
             val = data_2[k]
 
-            str_to_append = f'  + {k}: {val}'
-            result.append(str_to_append.lower())
+            result[k] = val
     
     return result
 
 
-def find_different_pairs(data_1, data_2):
+def find_changed_data(data_1, data_2):
 
     keys_1 = data_1.keys()
     keys_2 = data_2.keys()
 
-    result = []
+    before_change = {}
+    after_change = {}
 
     for k in keys_1:
 
@@ -99,21 +107,17 @@ def find_different_pairs(data_1, data_2):
                 val1 = data_1[k]
                 val2 = data_2[k]
 
-                str_to_append_1 = f'  - {k}: {val1}'
-                str_to_append_2 = f'  + {k}: {val2}'
+                before_change[k] = val1
+                after_change[k] = val2
 
-                result.append(str_to_append_1)
-                result.append(str_to_append_2)
-
-    return result
+    return before_change, after_change
 
 
-def get_big_list(data_1, data_2):
+def get_categorized_data(data_1, data_2):
 
-    equal_pairs = find_the_same_data(data_1, data_2)
-    no_match_pairs = one_file_only(data_1, data_2)
-    pairs_with_different_vals = find_different_pairs(data_1, data_2)
+    same_data = find_the_same_data(data_1, data_2)
+    removed_data = find_removed_data(data_1, data_2)
+    added_data = find_added_data(data_1, data_2)
+    before_change, after_change = find_changed_data(data_1, data_2)
 
-    big_list = equal_pairs + no_match_pairs + pairs_with_different_vals
-
-    return big_list
+    return same_data, removed_data, added_data, before_change, after_change
