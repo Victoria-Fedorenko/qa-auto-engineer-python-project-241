@@ -21,7 +21,7 @@ def format_changed_data(before_change, after_change):
     return result
 
 
-def plain(removed_data, added_data, before_change, after_change):
+def plain(same_data, removed_data, added_data, before_change, after_change):
 
     removed_data_formatted = format_removed_data(removed_data)
     added_data_formatted = format_added_data(added_data)
