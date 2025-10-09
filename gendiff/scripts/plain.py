@@ -1,24 +1,27 @@
 def format_removed_data(removed_data):
     result = []
     for k, val in removed_data.items():
-        result.append(f"Property '{k}' was removed".lower())
+        k = str(k).lower()
+        result.append(f"Property '{k}' was removed")
     return result
 
 
 def format_added_data(added_data):
     result = []
     for k, val in added_data.items():
-        result.append(f"Property '{k}' was added with value: {val}".lower())
+        k = str(k).lower()
+        result.append(f"Property '{k}' was added with value: {val}")
     return result
 
 
 def format_changed_data(before_change, after_change):
     result = []
     for k in before_change.keys():
-        val1 = before_change[k]
-        val2 = after_change[k]
+        k = str(k).lower()
+        val1 = str(before_change[k]).lower()
+        val2 = str(after_change[k]).lower()
         result.append(f"""Property '{k}' was updated. 
-                      From {val1} to {val2}""".lower())
+                      From {val1} to {val2}""")
     return result
 
 
