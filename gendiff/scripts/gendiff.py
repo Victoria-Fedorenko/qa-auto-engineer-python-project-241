@@ -2,8 +2,13 @@
 import argparse
 
 from gendiff.scripts.parse_data import get_categorized_data, read_files
-from gendiff.scripts.stylish import stylish
 from gendiff.scripts.plain import plain
+from gendiff.scripts.stylish import stylish
+
+FORMATTERS = {
+    "stylish": stylish,
+    "plain": plain,
+}
 
 
 def generate_diff(file1, file2, formatter=stylish):
@@ -41,11 +46,20 @@ def main():
 
     parser.add_argument('second_file')
 
-    parser.add_argument('-f', '--format')
+    parser.add_argument(
+        '-f',
+        '--format',
+        choices=list(FORMATTERS.keys()),
+        default='stylish',
+        help='Output format (default: stylish)',
+    )
 
     args = parser.parse_args()
 
-    result = generate_diff(args.first_file, args.second_file)
+    formatter = FORMATTERS.get(args.format, stylish)
+    result = generate_diff(args.first_file, 
+                           args.second_file, 
+                           formatter=formatter)
 
     return result
 
