@@ -3,6 +3,7 @@ import argparse
 
 from gendiff.scripts.parse_data import get_categorized_data, read_files
 from gendiff.scripts.stylish import stylish
+from gendiff.scripts.plain import plain
 
 
 def generate_diff(file1, file2, formatter=stylish):
