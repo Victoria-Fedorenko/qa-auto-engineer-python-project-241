@@ -10,6 +10,7 @@ def format_added_data(added_data):
     result = []
     for k, val in added_data.items():
         k = str(k).lower()
+        val = str(val).lower()
         result.append(f"Property '{k}' was added with value: {val}")
     return result
 
@@ -20,8 +21,9 @@ def format_changed_data(before_change, after_change):
         k = str(k).lower()
         val1 = str(before_change[k]).lower()
         val2 = str(after_change[k]).lower()
-        result.append(f"""Property '{k}' was updated. 
-                      From {val1} to {val2}""")
+        result.append(
+            f"""Property '{k}' was updated. From {val1} to {val2}"""
+            )
     return result
 
 
