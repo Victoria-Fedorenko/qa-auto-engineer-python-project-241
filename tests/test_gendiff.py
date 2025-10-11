@@ -18,3 +18,5 @@ def test_generate_diff():
     assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', stylish) == expected_stylish
     assert generate_diff('tests/test_data/filepath1.yml', 'tests/test_data/filepath2.yml') == expected_stylish
     assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', plain) == expected_plain
+    assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', json) == expected_json
+    
