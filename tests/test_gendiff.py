@@ -1,23 +1,20 @@
 from gendiff.scripts.gendiff import generate_diff
 from gendiff.scripts.stylish import stylish
 from gendiff.scripts.plain import plain
+import json
 
-good_result_stylish = """{
-  - follow: false
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-}"""
+def load_expected(name):
+    path = f'tests/expected/{name}'
+    with open(path, 'r') as fh:
+        return fh.read()
 
-good_result_plain = """Property 'follow' was removed
-Property 'proxy' was removed
-Property 'timeout' was updated. From 50 to 20
-Property 'verbose' was added with value: true"""
 
 def test_generate_diff():
-  assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json') == good_result_stylish
-  assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', stylish) == good_result_stylish
-  assert generate_diff('tests/test_data/filepath1.yml', 'tests/test_data/filepath2.yml') == good_result_stylish
-  assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', plain) == good_result_plain 
+    expected_stylish = load_expected('stylish.txt')
+    expected_plain = load_expected('plain.txt')
+    expected_json = json.loads(load_expected('json.json'))
+
+    assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json') == expected_stylish
+    assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', stylish) == expected_stylish
+    assert generate_diff('tests/test_data/filepath1.yml', 'tests/test_data/filepath2.yml') == expected_stylish
+    assert generate_diff('tests/test_data/file1.json', 'tests/test_data/file2.json', plain) == expected_plain
