@@ -1,4 +1,7 @@
-This CLI tool can help you to compare two configuration files using gendiff function. [Watch demonstration for json files](https://asciinema.org/a/YONoWweyjVdWYWzxh994hgtza) [Watch demonstration for yaml files](https://asciinema.org/a/4eqZF5sM4VduEwwfLEmvYTCsq)
+This CLI tool can help you to compare two configuration files using gendiff function. 
+[Watch demonstration of usage with or without formatters](https://asciinema.org/a/QkJVHlLIs8CfYyvCqWVTwhQXy)
+[Watch demonstration for json files](https://asciinema.org/a/YONoWweyjVdWYWzxh994hgtza) 
+[Watch demonstration for yaml files](https://asciinema.org/a/4eqZF5sM4VduEwwfLEmvYTCsq)
 
 
 ### Hexlet tests and linter status:
