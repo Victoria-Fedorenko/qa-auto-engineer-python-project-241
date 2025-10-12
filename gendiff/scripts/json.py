@@ -1,4 +1,3 @@
-import json
 
 def format_changed_data(before_change, after_change):
     result = {}
@@ -7,7 +6,11 @@ def format_changed_data(before_change, after_change):
     return result
 
 
-def json_formatter(same_data, removed_data, added_data, before_change, after_change):
+def json_formatter(same_data, 
+                   removed_data, 
+                   added_data, 
+                   before_change, 
+                   after_change):
     changed_data_formatted = format_changed_data(before_change, after_change)
     result = {
         "removed": removed_data,

@@ -1,10 +1,10 @@
 
 import argparse
 
+from gendiff.scripts.json import json_formatter
 from gendiff.scripts.parse_data import get_categorized_data, read_files
 from gendiff.scripts.plain import plain
 from gendiff.scripts.stylish import stylish
-from gendiff.scripts.json import json_formatter
 
 FORMATTERS = {
     "stylish": stylish,
