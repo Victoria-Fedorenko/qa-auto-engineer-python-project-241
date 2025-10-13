@@ -1,11 +1,11 @@
 
 import argparse
+import json
 
 from gendiff.scripts.json import json_formatter
 from gendiff.scripts.parse_data import get_categorized_data, read_files
 from gendiff.scripts.plain import plain
 from gendiff.scripts.stylish import stylish
-import json
 
 FORMATTERS = {
     "stylish": stylish,
@@ -28,7 +28,6 @@ def generate_diff(file1, file2, formatter=stylish):
         data_2,
     )
     
-    # If caller passed a formatter name (string), resolve to function
     if isinstance(formatter, str):
         formatter = FORMATTERS.get(formatter, stylish)
 
@@ -70,7 +69,6 @@ def main():
         formatter=formatter,
     )
 
-    # If formatter returned a Python structure (dict/list), serialize to JSON for CLI output
     if isinstance(result, (dict, list)):
         print(json.dumps(result, indent=2))
     else:
