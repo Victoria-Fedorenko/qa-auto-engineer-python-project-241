@@ -15,7 +15,7 @@ def json_formatter(same_data,
     result = {
         "removed": removed_data,
         "added": added_data,
-        "changed": changed_data_formatted,
+        "updated": changed_data_formatted,
         # "same": same_data
     }
     return result
