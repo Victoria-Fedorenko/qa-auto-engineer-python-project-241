@@ -2,6 +2,7 @@ This CLI tool can help you to compare two configuration files using gendiff func
 [Watch demonstration of usage with or without formatters](https://asciinema.org/a/QkJVHlLIs8CfYyvCqWVTwhQXy)
 [Watch demonstration for json files](https://asciinema.org/a/YONoWweyjVdWYWzxh994hgtza) 
 [Watch demonstration for yaml files](https://asciinema.org/a/4eqZF5sM4VduEwwfLEmvYTCsq)
+[Json formatter](https://asciinema.org/a/2AGCrM6ckuPikuX4a7w8rm9XA)
 
 
 ### Hexlet tests and linter status:
