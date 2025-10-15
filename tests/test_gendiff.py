@@ -4,8 +4,8 @@ from gendiff.scripts.plain import plain
 import json
 from gendiff.scripts.json import json_formatter
 
-def load_expected(name):
 
+def load_expected(name):
 
     path = f'tests/expected/{name}'
     with open(path, 'r') as fh:
