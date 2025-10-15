@@ -15,8 +15,7 @@ def load_expected(name):
 def test_generate_diff():
     expected_stylish = load_expected('stylish.txt')
     expected_plain = load_expected('plain.txt')
-    expected_json = json.dumps(
-        json.loads(load_expected('json.json')), indent=2)
+    expected_json = json.loads(load_expected('json.json')), indent=2
 
     assert generate_diff('tests/test_data/file1.json', 
                          'tests/test_data/file2.json') == expected_stylish
@@ -28,7 +27,8 @@ def test_generate_diff():
     assert generate_diff('tests/test_data/file1.json', 
                          'tests/test_data/file2.json', 
                          plain) == expected_plain
-    assert generate_diff('tests/test_data/file1.json', 
+    assert json.loads(generate_diff(
+                        'tests/test_data/file1.json', 
                          'tests/test_data/file2.json', 
-                         json_formatter) == expected_json
+                         json_formatter)) == expected_json
     
