@@ -6,6 +6,7 @@ from gendiff.scripts.json import json_formatter
 
 def load_expected(name):
 
+
     path = f'tests/expected/{name}'
     with open(path, 'r') as fh:
         return fh.read()
