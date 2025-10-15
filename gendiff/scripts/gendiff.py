@@ -1,6 +1,5 @@
 
 import argparse
-import json
 
 from gendiff.scripts.json import json_formatter
 from gendiff.scripts.parse_data import get_categorized_data, read_files
