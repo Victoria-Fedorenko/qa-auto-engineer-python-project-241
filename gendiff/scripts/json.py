@@ -1,3 +1,5 @@
+import json
+
 
 def format_changed_data(before_change, after_change):
     result = {}
@@ -18,4 +20,4 @@ def json_formatter(same_data,
         "updated": changed_data_formatted,
         # "same": same_data
     }
-    return result
+    return json.dumps(result)

@@ -69,12 +69,14 @@ def main():
         formatter=formatter,
     )
 
-    if isinstance(result, (dict, list)):
-        print(json.dumps(result, indent=2))
-    else:
-        print(result)
+    # if isinstance(result, (dict, list)):
+    #     print(json.dumps(result, indent=2))
+    # else:
+    #     print(result)
 
-    return None
+    # return None
+
+    print(result)
 
 
 if __name__ == '__main__':
