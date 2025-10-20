@@ -65,5 +65,10 @@ jobs:
           path: ./
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
+        with:
+          args: >
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_SCANNER_OPTS: -X
