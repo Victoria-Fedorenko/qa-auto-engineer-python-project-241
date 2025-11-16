@@ -10,7 +10,7 @@ def format_removed_data(removed_data):
     for k, val in removed_data.items():
         result.append(f'  - {k}: {val}'.lower())
     return result
- 
+
 
 def format_added_data(added_data):
     result = []
